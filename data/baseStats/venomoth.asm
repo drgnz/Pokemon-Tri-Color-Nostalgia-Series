@@ -12,16 +12,11 @@ db 138 ; base exp yield
 INCBIN "pic/bmon/venomoth.pic",0,1 ; 77, sprite dimensions
 dw VenomothPicFront
 dw VenomothPicBack
-; attacks known at lvl 0
-db TACKLE
-db DISABLE
-IF DEF(_YELLOW)
-	db SUPERSONIC
-	db CONFUSION
-ELSE
-	db POISONPOWDER
-	db LEECH_LIFE
-ENDC
+; move tutor compatibility flags
+	m_tutor 0
+	m_tutor 0
+	m_tutor 0
+	m_tutor 0
 db 0 ; growth rate
 ; learnset
 	tmlearn 2,4,6

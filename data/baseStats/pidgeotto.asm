@@ -12,11 +12,11 @@ db 113 ; base exp yield
 INCBIN "pic/bmon/pidgeotto.pic",0,1 ; 66, sprite dimensions
 dw PidgeottoPicFront
 dw PidgeottoPicBack
-; attacks known at lvl 0
-db TACKLE
-db SAND_ATTACK
-db GUST
-db 0
+; move tutor compatibility flags
+	m_tutor 0
+	m_tutor 0
+	m_tutor 0
+	m_tutor 0
 db 3 ; growth rate
 ; learnset
 	tmlearn 2,4,6
