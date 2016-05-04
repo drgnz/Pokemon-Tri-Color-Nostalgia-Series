@@ -325,7 +325,7 @@ LearnMoveFromLevelUp: ; 3af5b (e:6f5b)
 	dec a
 	ld b, 0
 	ld c, a
-	ld hl, EvoMovesPointerTable
+	ld hl, EvosMovesPointerTable
 	add hl, bc
 	add hl, bc
 	ld a, [hli]
