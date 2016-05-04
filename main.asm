@@ -3724,8 +3724,8 @@ _AddPartyMon: ; f2e5 (3:72e5)
 	inc de
 	ld a, [hli]       ; catch rate (held item in gen 2)
 	ld [de], a
-	ld hl, wMonHMoves
-	ld a, [hli]
+	; blank moves first
+	xor a
 	inc de
 	push de
 	ld [de], a
@@ -4864,6 +4864,7 @@ AgathaSprite:         INCBIN "gfx/sprites/agatha.2bpp"
 BrunoSprite:          INCBIN "gfx/sprites/bruno.2bpp"
 LoreleiSprite:        INCBIN "gfx/sprites/lorelei.2bpp"
 SeelSprite:           INCBIN "gfx/sprites/seel.2bpp"
+SurfingPikachuSprite: INCBIN "gfx/sprites/surfing_pikachu.2bpp"
 
 
 SECTION "Battle (bank 5)", ROMX, BANK[$5]
@@ -5514,6 +5515,10 @@ SECTION "Pics 6", ROMX, BANK[PICS_6]
 RedPicBack::           INCBIN "pic/trainer/redb.pic"
 LeafPicBack::          INCBIN "pic/trainer/leafb.pic"
 OldManPic::            INCBIN "pic/trainer/oldman.pic"
+RedFishingTilesFront: INCBIN "gfx/red_fishing_tile_front.2bpp"
+RedFishingTilesBack:  INCBIN "gfx/red_fishing_tile_back.2bpp"
+RedFishingTilesSide:  INCBIN "gfx/red_fishing_tile_side.2bpp"
+RedFishingRodTiles:   INCBIN "gfx/red_fishingrod_tiles.2bpp"
 LeafFishingTilesFront: INCBIN "gfx/leaf_fishing_tile_front.2bpp"
 LeafFishingTilesBack:  INCBIN "gfx/leaf_fishing_tile_back.2bpp"
 LeafFishingTilesSide:  INCBIN "gfx/leaf_fishing_tile_side.2bpp"
@@ -6721,11 +6726,6 @@ INCLUDE "engine/overworld/cut2.asm"
 
 INCLUDE "engine/overworld/ssanne.asm"
 
-RedFishingTilesFront: INCBIN "gfx/red_fishing_tile_front.2bpp"
-RedFishingTilesBack:  INCBIN "gfx/red_fishing_tile_back.2bpp"
-RedFishingTilesSide:  INCBIN "gfx/red_fishing_tile_side.2bpp"
-RedFishingRodTiles:   INCBIN "gfx/red_fishingrod_tiles.2bpp"
-
 INCLUDE "data/animations.asm"
 
 INCLUDE "engine/evolution.asm"
@@ -6743,3 +6743,7 @@ BeachHouse_GFX:
 BeachHouse_Block:
 	INCBIN "gfx/blocksets/beachhouse.bst"
 ENDC
+
+SECTION "field moves", ROMX,BANK[$38]
+
+INCLUDE "scripts/move_tutor.asm"
