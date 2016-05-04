@@ -167,6 +167,8 @@ const_value = 1
 	const METAL_CLAW   ; a5
 	const IRON_TAIL    ; a6
 	const SCALD        ; a7
+	const CRUNCH       ; a8
+	const FLARE_BLITZ  ; a9
 
 NUM_ATTACKS EQU const_value + -1
 
