@@ -1993,6 +1993,9 @@ RunMapScript:: ; 101b (0:101b)
 	ret
 
 LoadWalkingPlayerSpriteGraphics:: ; 104d (0:104d)
+    xor a
+    ld [wd473],a
+    ld b,BANK(RedSprite)
 	ld de,RedSprite
     ld a, [wPlayerGender]
     bit 2, a
@@ -2001,13 +2004,31 @@ LoadWalkingPlayerSpriteGraphics:: ; 104d (0:104d)
 .AreGuy1
 	ld hl,vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
-
+    
+LoadSurfingPlayerSpriteGraphics2:: ; 0d69 (0:0d69)
+    ld a,[wd473]
+    and a
+    jr z,.asm_0d75
+    dec a
+    jr z,LoadSurfingPlayerSpriteGraphics
+    dec a
+    jr z,.asm_0d7c
+.asm_0d75
+    ld a,[wd472]
+    bit 6,a
+    jr z,LoadSurfingPlayerSpriteGraphics
+.asm_0d7c
+    ld b,BANK(SurfingPikachuSprite)
+    ld de,SurfingPikachuSprite ; 3f:6def
+    jr LoadPlayerSpriteGraphicsCommon
+    
 LoadSurfingPlayerSpriteGraphics:: ; 1055 (0:1055)
-	ld de,SeelSprite
-	ld hl,vNPCSprites
-	jr LoadPlayerSpriteGraphicsCommon
+    ld b,BANK(RedSprite) ; not sure, but probably same bank (5)
+    ld de,SeelSprite
+    jr LoadPlayerSpriteGraphicsCommon
 
 LoadBikePlayerSpriteGraphics:: ; 105d (0:105d)
+    ld b,BANK(RedCyclingSprite)
 	ld de,RedCyclingSprite
     ld a, [wPlayerGender]
     bit 2, a
@@ -2015,23 +2036,24 @@ LoadBikePlayerSpriteGraphics:: ; 105d (0:105d)
     ld de,LeafCyclingSprite
 .AreGuy2
 	ld hl,vNPCSprites
-
 LoadPlayerSpriteGraphicsCommon:: ; 1063 (0:1063)
-	push de
-	push hl
-	lb bc, BANK(RedSprite), $0c
-	call CopyVideoData
-	pop hl
-	pop de
-	ld a,$c0
-	add e
-	ld e,a
-	jr nc,.noCarry
-	inc d
+    push de
+    push hl
+    push bc
+    ld c, $c
+    call CopyVideoData
+    pop bc
+    pop hl
+    pop de
+    ld a,$c0
+    add e
+    ld e,a
+    jr nc,.noCarry
+    inc d
 .noCarry
-	set 3,h
-	lb bc, BANK(RedSprite), $0c
-	jp CopyVideoData
+    set 3,h
+    ld c,$c
+    jp CopyVideoData
 
 ; function to load data from the map header
 LoadMapHeader:: ; 107c (0:107c)
