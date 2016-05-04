@@ -166,6 +166,8 @@ AttackAnimationPointers: ; 7a07d (1e:607d)
 	dw MetalClawAnim
 	dw IronTailAnim
 	dw ScaldAnim
+	dw CrunchAnim
+	dw FlareBlitzAnim
 	dw StruggleAnim
 	dw ShowPicAnim
 	dw EnemyFlashAnim
@@ -277,7 +279,7 @@ RazorWindAnim: ; 7a25c (1e:625c)
 	db $04,$0C,$16
 	db $FF
 
-SwordsDanceAnim: ; 7a26Slash0 (1e:6260)
+SwordsDanceAnim: ; 7a260 (1e:6260)
 	db $46,$0D,$18
 	db $46,$0D,$18
 	db $46,$0D,$18
@@ -1144,9 +1146,22 @@ IronTailAnim:
 	db SE_RESET_MON_POSITION, $84
 	db $FF
 
-ScaldAnim: ; 7a386 (1e:6386)
+ScaldAnim:
 	db SE_DARK_SCREEN_FLASH, $0E
 	db $06,$37,$1A
+	db $FF
+
+CrunchAnim:
+	db SE_DARK_SCREEN_FLASH, $0E
+	db $08,$2B,$02
+	db $FF
+
+FlareBlitzAnim:
+	db SE_DARK_SCREEN_PALETTE, $48
+	db $46,$34,$1F
+	db $46,$34,$0C
+	db $46,$34,$0D
+	db SE_RESET_SCREEN_PALETTE, $FF
 	db $FF
 
 BallTossAnim: ; 7a6d9 (1e:66d9)

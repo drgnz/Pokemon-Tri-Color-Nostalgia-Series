@@ -178,4 +178,6 @@ MoveEnd:
 	move METAL_CLAW,   ATTACK_UP_SIDE_EFFECT,       50, STEEL,     95, 35
 	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT,   100, STEEL,     75, 15
 	move SCALD,        BURN_SIDE_EFFECT2,           80, WATER,    100, 15
+	move CRUNCH,       SPECIAL_DOWN_SIDE_EFFECT,    80, DARK,     100, 15
+	move FLARE_BLITZ,  BURN_SIDE_EFFECT1,          120, FIRE,     100, 15
 	move STRUGGLE,     RECOIL_EFFECT,               50, NORMAL,   100, 10
