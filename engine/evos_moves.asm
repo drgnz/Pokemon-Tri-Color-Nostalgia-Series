@@ -320,58 +320,59 @@ Evolution_ReloadTilesetTilePatterns: ; 3af52 (e:6f52)
 	jp ReloadTilesetTilePatterns
 
 LearnMoveFromLevelUp: ; 3af5b (e:6f5b)
-	ld hl, EvosMovesPointerTable
 	ld a, [wd11e] ; species
 	ld [wcf91], a
 	dec a
-	ld bc, 0
-	ld hl, EvosMovesPointerTable
-	add a
-	rl b
+	ld b, 0
 	ld c, a
+	ld hl, EvoMovesPointerTable
+	add hl, bc
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+
 .skipEvolutionDataLoop ; loop to skip past the evolution data, which comes before the move data
 	ld a, [hli]
 	and a ; have we reached the end of the evolution data?
 	jr nz, .skipEvolutionDataLoop ; if not, jump back up
+
 .learnSetLoop ; loop over the learn set until we reach a move that is learnt at the current level or the end of the list
 	ld a, [hli]
 	and a ; have we reached the end of the learn set?
 	jr z, .done ; if we've reached the end of the learn set, jump
+
 	ld b, a ; level the move is learnt at
 	ld a, [wCurEnemyLVL]
 	cp b ; is the move learnt at the mon's current level?
 	ld a, [hli] ; move ID
 	jr nz, .learnSetLoop
+
+	push hl
 	ld d, a ; ID of move to learn
-	ld a, [wMonDataLocation]
-	and a
-	jr nz, .next
-; If [wMonDataLocation] is 0 (PLAYER_PARTY_DATA), get the address of the mon's
-; current moves in party data. Every call to this function sets
-; [wMonDataLocation] to 0 because other data locations are not supported.
-; If it is not 0, this function will not work properly.
 	ld hl, wPartyMon1Moves
 	ld a, [wWhichPokemon]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
-.next
+
 	ld b, NUM_MOVES
 .checkCurrentMovesLoop ; check if the move to learn is already known
 	ld a, [hli]
 	cp d
-	jr z, .done ; if already known, jump
+	jr z, .has_move ; if already known, jump
 	dec b
 	jr nz, .checkCurrentMovesLoop
+;learn move
 	ld a, d
 	ld [wMoveNum], a
 	ld [wd11e], a
 	call GetMoveName
 	call CopyStringToCF4B
 	predef LearnMove
+.has_move
+	pop hl
+	jr .learnSetLoop
+
 .done
 	ld a, [wcf91]
 	ld [wd11e], a
