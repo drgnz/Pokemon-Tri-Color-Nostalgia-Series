@@ -158,22 +158,37 @@ StartMenu_Pokemon: ; 130a9 (4:70a9)
 	jp z,.loop
 	jp CloseTextDisplay
 .surf
-	bit 4,a ; does the player have the Soul Badge?
-	jp z,.newBadgeRequired
-	callba IsSurfingAllowed
-	ld hl,wd728
-	bit 1,[hl]
-	res 1,[hl]
-	jp z,.loop
-	ld a,SURFBOARD
-	ld [wcf91],a
+    bit 4,a ; does the player have the Soul Badge?
+    jp z,.newBadgeRequired
+    callba IsSurfingAllowed
+    ld hl,wd728
+    bit 1,[hl]
+    res 1,[hl]
+    jp z,.loop
+    ld a, [wcf91]
+    cp PIKACHU ; is this surfing pikachu?
+    jr z,.surfingPikachu
+	cp RAICHU
+	jr z,.surfingPikachu
+    ld a, $1
+    jr .continue
+.surfingPikachu
+    ld a, $2
+.continue
+    ld [wd473], a
+    ld a,SURFBOARD
+    ld [wcf91],a
 	ld [wPseudoItemID],a
 	call UseItem
 	ld a,[wActionResultOrTookBattleTurn]
-	and a
-	jp z,.loop
-	call GBPalWhiteOutWithDelay3
-	jp .goBackToMap
+    and a
+    jr z,.reloadNormalSprite
+    call GBPalWhiteOutWithDelay3
+    jp .goBackToMap
+.reloadNormalSprite
+    xor a
+    ld [wd473], a
+    jp .loop
 .strength
 	bit 3,a ; does the player have the Rainbow Badge?
 	jp z,.newBadgeRequired
