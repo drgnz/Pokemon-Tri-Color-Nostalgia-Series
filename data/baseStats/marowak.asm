@@ -12,17 +12,11 @@ db 124 ; base exp yield
 INCBIN "pic/bmon/marowak.pic",0,1 ; 66, sprite dimensions
 dw MarowakPicFront
 dw MarowakPicBack
-; attacks known at lvl 0
-db BONE_CLUB
-IF DEF(_YELLOW)
-	db TAIL_WHIP
-	db 0
-	db 0
-ELSE
-	db GROWL
-	db LEER
-	db FOCUS_ENERGY
-ENDC
+; move tutor compatibility flags
+	m_tutor 0
+	m_tutor 0
+	m_tutor 0
+	m_tutor 0
 db 0 ; growth rate
 ; learnset
 	tmlearn 1,5,6,8

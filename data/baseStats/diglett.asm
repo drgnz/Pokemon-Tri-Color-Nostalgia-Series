@@ -12,11 +12,11 @@ db 81 ; base exp yield
 INCBIN "pic/bmon/diglett.pic",0,1 ; 55, sprite dimensions
 dw DiglettPicFront
 dw DiglettPicBack
-; attacks known at lvl 0
-db SCRATCH
-db 0
-db 0
-db 0
+; move tutor compatibility flags
+	m_tutor 0
+	m_tutor 0
+	m_tutor 0
+	m_tutor 0
 db 0 ; growth rate
 ; learnset
 	tmlearn 6,8
@@ -25,9 +25,5 @@ db 0 ; growth rate
 	tmlearn 26,27,28,31,32
 	tmlearn 34
 	tmlearn 44,48
-IF DEF(_YELLOW)
 	tmlearn 50,51
-ELSE
-	tmlearn 50
-ENDC
 db 0 ; padding
