@@ -4738,7 +4738,6 @@ CriticalHitTest: ; 3e023 (f:6023)
 	ld a, [de]
 	bit GettingPumped, a         ; test for focus energy
 	jr z, .noFocusEnergyUsed     
-	                             ; resulting in 1/4 the usual crit chance
 	sla b
 	jr c, .guaranteedCritical
 	sla b
@@ -5558,12 +5557,16 @@ MoveHitTest: ; 3e56b (f:656b)
 	ld a,[wEnemyMoveAccuracy]
 	ld b,a
 .doAccuracyCheck
-; if the random number generated is greater than or equal to the scaled accuracy, the move misses
-; note that this means that even the highest accuracy is still just a 255/256 chance, not 100%
-	call BattleRandom
-	cp b
-	jr nc,.moveMissed
-	ret
+; if the move is 100% accurate, don't miss
+	ld a, b
+	cp $FF
+	ret z
+; else if the random number generated is greater than or equal to the scaled accuracy, the move misses
+ 	call BattleRandom
+ 	cp b
+ 	jr nc,.moveMissed
+ 	ret
+
 .moveMissed
 	xor a
 	ld hl,wDamage ; zero the damage
@@ -6317,18 +6320,14 @@ LoadEnemyMonData: ; 3eb01 (f:6b01)
 	call CopyData
 	jr .loadMovePPs
 .copyStandardMoves
-; for a wild mon, first copy default moves from the mon header
-	ld hl, wMonHMoves
-	ld a, [hli]
+; for a wild mon, first clear the movies before copying
+	xor a
 	ld [de], a
 	inc de
-	ld a, [hli]
 	ld [de], a
 	inc de
-	ld a, [hli]
 	ld [de], a
 	inc de
-	ld a, [hl]
 	ld [de], a
 	dec de
 	dec de
@@ -7332,7 +7331,7 @@ PoisonEffect: ; 3f24f (f:724f)
 	jr nz, .noEffect ; miss if target is already statused
 	ld a, [hli]
 	cp POISON ; can't posion a poison-type target
-	jr z, .versusPoison
+	jr z, .noEffect
 	ld a, [hld]
 	cp POISON ; can't posion a poison-type target
 	jr z, .noEffect
