@@ -367,7 +367,7 @@ AnimationTileset2: ; 786ee (1e:46ee)
 	INCBIN "gfx/attack_anim_2.2bpp"
 
 SlotMachineTiles2: ; 78bde (1e:4bde)
-IF DEF(_RED)
+IF DEF(_RED) || DEF(_GREEN)
 	INCBIN "gfx/red/slotmachine2.2bpp"
 ENDC
 IF DEF(_BLUE)
@@ -2533,6 +2533,8 @@ MoveSoundTable: ; 798bc (1e:58bc)
 	db SFX_NOT_VERY_EFFECTIVE,$00,$ff ; METAL_CLAW
 	db SFX_BATTLE_21,         $01,$80 ; IRON_TAIL
 	db SFX_BATTLE_2A,         $00,$60 ; SCALD
+	db SFX_BATTLE_1E,         $40,$60 ; CRUNCH
+	db SFX_BATTLE_19,         $18,$c0 ; FLARE_BLITZ
 	db SFX_BATTLE_0B,         $00,$80 ; STRUGGLE
 	db SFX_BATTLE_0B,         $00,$80
 
