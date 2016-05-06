@@ -4873,7 +4873,6 @@ INCLUDE "engine/load_pokedex_tiles.asm"
 INCLUDE "engine/overworld/map_sprites.asm"
 INCLUDE "engine/overworld/emotion_bubbles.asm"
 INCLUDE "engine/evolve_trade.asm"
-INCLUDE "engine/battle/moveEffects/substitute_effect.asm"
 INCLUDE "engine/menu/pc.asm"
 
 
@@ -5143,6 +5142,8 @@ ENDC
 INCLUDE "engine/menu/oaks_pc.asm"
 
 INCLUDE "engine/hidden_object_functions7.asm"
+
+INCLUDE "engine/battle/moveEffects/substitute_effect.asm"
 
 
 SECTION "Pics 1", ROMX, BANK[PICS_1]
