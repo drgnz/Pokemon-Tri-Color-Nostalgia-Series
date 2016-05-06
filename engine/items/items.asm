@@ -2344,6 +2344,7 @@ ThrowBallAtTrainerMon: ; e58b (3:658b)
 	call PrintText
 	ld hl,ThrowBallAtTrainerMonText2
 	call PrintText
+	ret
 
 NoCyclingAllowedHere: ; e5ac (3:65ac)
 	ld hl,NoCyclingAllowedHereText
