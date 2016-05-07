@@ -4743,6 +4743,7 @@ SECTION "NPC Sprites 1", ROMX, BANK[NPC_SPRITES_1]
 
 GiovanniSprite:       INCBIN "gfx/sprites/giovanni.2bpp"
 RocketSprite:         INCBIN "gfx/sprites/rocket.2bpp"
+OakSprite:            INCBIN "gfx/sprites/oak.2bpp"
 OakAideSprite:         INCBIN "gfx/sprites/oak_aide.2bpp"
 RockerSprite:          INCBIN "gfx/sprites/rocker.2bpp"
 SwimmerSprite:         INCBIN "gfx/sprites/swimmer.2bpp"
@@ -4794,8 +4795,6 @@ PokedexTileGraphics:            INCBIN "gfx/pokedex.2bpp"
 PokedexTileGraphicsEnd:
 WorldMapTileGraphics:           INCBIN "gfx/town_map.2bpp"
 WorldMapTileGraphicsEnd:
-PlayerCharacterTitleGraphics:   INCBIN "gfx/player_title.2bpp"
-PlayerCharacterTitleGraphicsEnd:
 
 
 
@@ -4829,7 +4828,6 @@ RedSprite:            INCBIN "gfx/sprites/red.2bpp"
 LeafSprite:           INCBIN "gfx/sprites/leaf.2bpp"
 LeafCyclingSprite:    INCBIN "gfx/sprites/leafcycling.2bpp"
 BlueSprite:           INCBIN "gfx/sprites/blue.2bpp"
-OakSprite:            INCBIN "gfx/sprites/oak.2bpp"
 BugCatcherSprite:     INCBIN "gfx/sprites/bug_catcher.2bpp"
 SlowbroSprite:        INCBIN "gfx/sprites/slowbro.2bpp"
 LassSprite:           INCBIN "gfx/sprites/lass.2bpp"
@@ -4866,7 +4864,6 @@ LoreleiSprite:        INCBIN "gfx/sprites/lorelei.2bpp"
 SeelSprite:           INCBIN "gfx/sprites/seel.2bpp"
 SurfingPikachuSprite: INCBIN "gfx/sprites/surfing_pikachu.2bpp"
 
-
 SECTION "Battle (bank 5)", ROMX, BANK[$5]
 
 INCLUDE "engine/load_pokedex_tiles.asm"
@@ -4878,6 +4875,8 @@ INCLUDE "engine/menu/pc.asm"
 
 SECTION "Graphics (bank 6)", ROMX, BANK[GFX_2]
 
+PlayerCharacterTitleGraphics:   INCBIN "gfx/player_title.2bpp"
+PlayerCharacterTitleGraphicsEnd:
 FemaleTitleGraphics:            INCBIN "gfx/player_title_2.2bpp"
 FemaleTitleGraphicsEnd:
 
