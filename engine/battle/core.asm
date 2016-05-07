@@ -22,9 +22,10 @@ ResidualEffects1: ; 3c000 (f:4000)
 	db -1
 SetDamageEffects: ; 3c011 (f:4011)
 ; moves that do damage but not through normal calculations
-; e.g., Super Fang, Psywave
+; e.g., Super Fang, Psywave, False Swipe
 	db SUPER_FANG_EFFECT
 	db SPECIAL_DAMAGE_EFFECT
+	db FALSE_SWIPE_EFFECT
 	db -1
 ResidualEffects2: ; 3c014 (f:4014)
 ; non-side effects not included in ResidualEffects1
@@ -85,6 +86,7 @@ SpecialEffects: ; 3c03b (f:403b)
 	db CHARGE_EFFECT
 	db SUPER_FANG_EFFECT
 	db SPECIAL_DAMAGE_EFFECT
+	db FALSE_SWIPE_EFFECT
 	db FLY_EFFECT
 	db ATTACK_TWICE_EFFECT
 	db JUMP_KICK_EFFECT
@@ -4855,6 +4857,8 @@ ApplyAttackToEnemyPokemon: ; 3e0df (f:60df)
 	jr z,.superFangEffect
 	cp a,SPECIAL_DAMAGE_EFFECT
 	jr z,.specialDamage
+	cp a,FALSE_SWIPE_EFFECT
+	jr z,.falseSwipeEffect
 	ld a,[wPlayerMovePower]
 	and a
 	jp z,ApplyAttackToEnemyPokemonDone ; no attack to apply if base power is 0
@@ -4898,6 +4902,20 @@ ApplyAttackToEnemyPokemon: ; 3e0df (f:60df)
 	srl a
 	add b
 	ld b,a ; b = level * 1.5
+.falseSwipeEffect
+; set the target's HP to 1
+	ld hl,wEnemyMonHP
+	ld de,wDamage
+	ld a,[hli]
+	srl a
+	ld [de],a
+	inc de
+	ld b,a
+	ld a,[hl]
+	rr a
+	ld [de],a
+	or b
+	jr nz,ApplyDamageToEnemyPokemon
 ; loop until a random number in the range [1, b) is found
 .loop
 	call BattleRandom
