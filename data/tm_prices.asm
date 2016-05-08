@@ -25,3 +25,10 @@ TechnicalMachinePrices: ; 7bfa7 (1e:7fa7)
 	dn 2, 4  ; TM_45, TM_46
 	dn 3, 4  ; TM_47, TM_48
 	dn 4, 2  ; TM_49, TM_50
+	dn 3, 2  ; TM_51, TM_52
+	dn 2, 1  ; TM_53, TM_54
+	dn 3, 4  ; TM_55, TM_56
+	dn 2, 4  ; TM_57, TM_58
+	dn 3, 4  ; TM_59, TM_60
+	dn 2, 1  ; TM_61, TM_62
+	dn 4, 5  ; TM_63, TM_64

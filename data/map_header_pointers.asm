@@ -105,7 +105,7 @@ MapHeaderPointers:: ; 01ae (0:01ae)
 	dw SSAnne8_h
 	dw SSAnne9_h
 	dw SSAnne10_h
-	dw Lance_h ; unused
+	dw CeladonBalletAcademy_h
 	dw Lance_h ; unused
 	dw Lance_h ; unused
 	dw VictoryRoad1_h

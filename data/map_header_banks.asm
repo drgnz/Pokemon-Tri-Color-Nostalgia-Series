@@ -105,7 +105,7 @@ MapHeaderBanks: ; c23d (3:423d)
 	db BANK(SSAnne8_h)
 	db BANK(SSAnne9_h)
 	db BANK(SSAnne10_h)
-	db $1D ;unused
+	db BANK(CeladonBalletAcademy_h)
 	db $1D ;unused
 	db $1D ;unused
 	db BANK(VictoryRoad1_h)

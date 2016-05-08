@@ -82,7 +82,7 @@ ENDC
 PrizeMenuTMsEntries: ; 5286f (14:686f)
 	db TM_23
 	db TM_15
-	db TM_50
+	db TM_60
 	db "@"
 
 PrizeMenuTMsCost: ; 52873 (14:6873)

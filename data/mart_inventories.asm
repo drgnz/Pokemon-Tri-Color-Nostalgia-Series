@@ -36,7 +36,8 @@ CeladonMart2Text1:: ; 2476 (0:2476)
 
 ; Celadon Dept. Store 2F (2)
 CeladonMart2Text2:: ; 2482 (0:2482)
-	db $FE,9,TM_32,TM_33,TM_02,TM_07,TM_37,TM_01,TM_05,TM_09,TM_17,$FF
+	db $FE,12,TM_32,TM_33,TM_02,TM_07,TM_37,TM_01,TM_05,TM_09,TM_17
+	db TM_47,TM_52,TM_57,$FF
 
 ; Celadon Dept. Store 4F
 CeladonMart4Text1:: ; 248e (0:248e)
