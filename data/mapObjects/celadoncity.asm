@@ -15,17 +15,18 @@ CeladonCityObject: ; 0x18022 (size=189)
 	db $1b, $1f, $0, CELADON_DINER
 	db $1b, $23, $0, CELADON_HOUSE
 	db $1b, $2b, $0, CELADON_HOTEL
+	db $1b, $27, $0, CELADON_BALLET_ACADEMY
 
 	db $9 ; signs
-	db $f, $1b, $a ; CeladonCityText10
-	db $f, $13, $b ; CeladonCityText11
-	db $9, $2a, $c ; PokeCenterSignText
-	db $1d, $d, $d ; CeladonCityText13
-	db $9, $15, $e ; CeladonCityText14
-	db $d, $c, $f ; CeladonCityText15
-	db $15, $27, $10 ; CeladonCityText16
-	db $15, $21, $11 ; CeladonCityText17
-	db $15, $1b, $12 ; CeladonCityText18
+	db $f, $1b, $b ; CeladonCityText10
+	db $f, $13, $c ; CeladonCityText11
+	db $9, $2a, $d ; PokeCenterSignText
+	db $1d, $d, $e ; CeladonCityText13
+	db $9, $15, $f ; CeladonCityText14
+	db $d, $c, $10 ; CeladonCityText15
+	db $15, $27, $11 ; CeladonCityText16
+	db $15, $21, $12 ; CeladonCityText17
+	db $15, $1b, $13 ; CeladonCityText18
 
 	db $9 ; objects
 	object SPRITE_LITTLE_GIRL, $8, $11, WALK, $0, $1 ; person
@@ -37,6 +38,7 @@ CeladonCityObject: ; 0x18022 (size=189)
 	object SPRITE_SLOWBRO, $1e, $c, STAY, RIGHT, $7 ; person
 	object SPRITE_ROCKET, $20, $1d, WALK, $2, $8 ; person
 	object SPRITE_ROCKET, $2a, $e, WALK, $2, $9 ; person
+	object SPRITE_BRUNETTE_GIRL, $27, $1c, STAY, UP, $a, OPP_MISTY, $2
 
 	; warp-to
 	EVENT_DISP CELADON_CITY_WIDTH, $d, $8 ; CELADON_MART_1
@@ -52,3 +54,4 @@ CeladonCityObject: ; 0x18022 (size=189)
 	EVENT_DISP CELADON_CITY_WIDTH, $1b, $1f ; CELADON_DINER
 	EVENT_DISP CELADON_CITY_WIDTH, $1b, $23 ; CELADON_HOUSE
 	EVENT_DISP CELADON_CITY_WIDTH, $1b, $2b ; CELADON_HOTEL
+	EVENT_DISP CELADON_CITY_WIDTH, $1b, $27 ; CELADON_BALLET_ACADEMY
