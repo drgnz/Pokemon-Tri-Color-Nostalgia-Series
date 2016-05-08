@@ -84,6 +84,7 @@ Route24TextPointers: ; 5144b (14:544b)
 	dw Route24Text6
 	dw Route24Text7
 	dw PickUpItemText
+	dw PickUpItemText
 
 Route24TrainerHeaders: ; 5145b (14:545b)
 Route24TrainerHeader0: ; 5145b (14:545b)

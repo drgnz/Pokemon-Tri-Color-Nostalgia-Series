@@ -1,5 +1,6 @@
 CeladonCityScript: ; 19956 (6:5956)
 	call EnableAutoTextBoxDrawing
+	ld hl, CeladonCityTrainerHeader0
 	ResetEvents EVENT_1B8, EVENT_1BF
 	ResetEvent EVENT_67F
 	ret
@@ -16,13 +17,23 @@ CeladonCityTextPointers: ; 19966 (6:5966)
 	dw CeladonCityText9
 	dw CeladonCityText10
 	dw CeladonCityText11
+	dw CeladonCityText12
 	dw PokeCenterSignText
-	dw CeladonCityText13
 	dw CeladonCityText14
 	dw CeladonCityText15
 	dw CeladonCityText16
 	dw CeladonCityText17
 	dw CeladonCityText18
+	dw CeladonCityText19
+
+CeladonCityTrainerHeaders:
+CeladonCityTrainerHeader0:
+	dbEventFlagBit EVENT_BEAT_MISTY_IN_CELADON_CITY
+	dwEventFlagAddress EVENT_BEAT_MISTY_IN_CELADON_CITY
+	dw CeladonCityBattleText ; TextBeforeBattle
+	dw CeladonCityAfterBattleText ; TextAfterBattle
+	dw CeladonCityEndBattleText ; TextEndBattle
+	dw CeladonCityEndBattleText ; TextEndBattle
 
 CeladonCityText1: ; 1998a (6:598a)
 	TX_FAR _CeladonCityText1
@@ -98,34 +109,66 @@ CeladonCityText9: ; 199fe (6:59fe)
 	TX_FAR _CeladonCityText9
 	db "@"
 
-CeladonCityText10: ; 19a03 (6:5a03)
-	TX_FAR _CeladonCityText10
+CeladonCityText10: ; 48a81 (12:4a81)
+	TX_ASM
+	ld hl, CeladonCityTrainerHeader0
+	call TalkToTrainer
+	jp TextScriptEnd
+
+CeladonCityBattleText: ; 48a8b (12:4a8b)
+	TX_FAR _CeladonGymBattleTexta
 	db "@"
 
-CeladonCityText11: ; 19a08 (6:5a08)
+CeladonCityEndBattleText: ; 48a90 (12:4a90)
+	TX_FAR _CeladonGymEndBattleText
+	db "@"
+
+CeladonCityAfterBattleText: ; 48a95 (12:4a95)
+	TX_ASM
+	CheckEvent EVENT_IRON_TAIL_TUTOR
+	jr nz, .asm_7053f
+	ld hl, IronTailMoveTutorPreText
+	call PrintText
+	ld a, 5
+	jp CeladonCityTutors
+
+IronTailMoveTutorPreText:
+	TX_FAR _IronTailMoveTutorPreText
+	db "@"
+
+CeladonCityText11: ; 19a03 (6:5a03)
 	TX_FAR _CeladonCityText11
 	db "@"
 
-CeladonCityText13: ; 19a0d (6:5a0d)
-	TX_FAR _CeladonCityText13
+CeladonCityText12: ; 19a08 (6:5a08)
+	TX_FAR _CeladonCityText12
 	db "@"
 
-CeladonCityText14: ; 19a12 (6:5a12)
+CeladonCityText14: ; 19a0d (6:5a0d)
 	TX_FAR _CeladonCityText14
 	db "@"
 
-CeladonCityText15: ; 19a17 (6:5a17)
+CeladonCityText15: ; 19a12 (6:5a12)
 	TX_FAR _CeladonCityText15
 	db "@"
 
-CeladonCityText16: ; 19a1c (6:5a1c)
+CeladonCityText16: ; 19a17 (6:5a17)
 	TX_FAR _CeladonCityText16
 	db "@"
 
-CeladonCityText17: ; 19a21 (6:5a21)
+CeladonCityText17: ; 19a1c (6:5a1c)
 	TX_FAR _CeladonCityText17
 	db "@"
 
-CeladonCityText18: ; 19a26 (6:5a26)
+CeladonCityText18: ; 19a21 (6:5a21)
 	TX_FAR _CeladonCityText18
 	db "@"
+
+CeladonCityText19: ; 19a26 (6:5a26)
+	TX_FAR _CeladonCityText19
+	db "@"
+
+CeladonCityTutors:
+	ld [wWhichTrade], a
+	callba MoveTutorScript
+	jp TextScriptEnd

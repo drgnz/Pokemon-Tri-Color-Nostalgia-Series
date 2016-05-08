@@ -79,6 +79,7 @@ VictoryRoad2TextPointers: ; 5181b (14:581b)
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
+	dw PickUpItemText
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText

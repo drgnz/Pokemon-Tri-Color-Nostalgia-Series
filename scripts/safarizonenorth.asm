@@ -4,6 +4,7 @@ SafariZoneNorthScript: ; 459ab (11:59ab)
 SafariZoneNorthTextPointers: ; 459ae (11:59ae)
 	dw PickUpItemText
 	dw PickUpItemText
+	dw PickUpItemText
 	dw SafariZoneNorthText3
 	dw SafariZoneNorthText4
 	dw SafariZoneNorthText5
