@@ -14,6 +14,7 @@ ResidualEffects1: ; 3c000 (f:4000)
 	db LIGHT_SCREEN_EFFECT
 	db REFLECT_EFFECT
 	db POISON_EFFECT
+	db BURN_EFFECT
 	db PARALYZE_EFFECT
 	db SUBSTITUTE_EFFECT
 	db MIMIC_EFFECT
@@ -7223,13 +7224,13 @@ MoveEffectPointerTable: ; 3f150 (f:7150)
 	 dw SwitchAndTeleportEffect   ; SWITCH_AND_TELEPORT_EFFECT
 	 dw TwoToFiveAttacksEffect    ; TWO_TO_FIVE_ATTACKS_EFFECT
 	 dw TwoToFiveAttacksEffect    ; unused effect
-	 dw FlinchSideEffect           ; FLINCH_SIDE_EFFECT1
+	 dw FlinchSideEffect          ; FLINCH_SIDE_EFFECT1
 	 dw SleepEffect               ; SLEEP_EFFECT
 	 dw PoisonEffect              ; POISON_SIDE_EFFECT2
 	 dw FreezeBurnParalyzeEffect  ; BURN_SIDE_EFFECT2
 	 dw FreezeBurnParalyzeEffect  ; unused effect
 	 dw FreezeBurnParalyzeEffect  ; PARALYZE_SIDE_EFFECT2
-	 dw FlinchSideEffect           ; FLINCH_SIDE_EFFECT2
+	 dw FlinchSideEffect          ; FLINCH_SIDE_EFFECT2
 	 dw OneHitKOEffect            ; OHKO_EFFECT
 	 dw ChargeEffect              ; CHARGE_EFFECT
 	 dw $0000                     ; SUPER_FANG_EFFECT
@@ -7265,12 +7266,12 @@ MoveEffectPointerTable: ; 3f150 (f:7150)
 	 dw StatModifierDownEffect    ; SPEED_DOWN_SIDE_EFFECT
 	 dw StatModifierDownEffect    ; SPECIAL_DOWN_SIDE_EFFECT
 	 dw StatModifierUpEffect      ; ATTACK_UP_SIDE_EFFECT
-	 dw StatModifierUpEffect      ; unused effect
-	 dw StatModifierUpEffect      ; unused effect
-	 dw StatModifierUpEffect      ; unused effect
+	 dw StatModifierUpEffect      ; DEFENSE_UP_SIDE_EFFECT
+	 dw StatModifierUpEffect      ; SPEED_UP_SIDE_EFFECT
+	 dw StatModifierUpEffect      ; SPECIAL_UP_SIDE_EFFECT
 	 dw ConfusionSideEffect       ; CONFUSION_SIDE_EFFECT
 	 dw TwoToFiveAttacksEffect    ; TWINEEDLE_EFFECT
-	 dw $0000                     ; unused effect
+	 dw BurnEffect                ; BURN_EFFECT
 	 dw SubstituteEffect          ; SUBSTITUTE_EFFECT
 	 dw HyperBeamEffect           ; HYPER_BEAM_EFFECT
 	 dw RageEffect                ; RAGE_EFFECT
@@ -8452,6 +8453,9 @@ ConfusionEffectFailed: ; 3f9a6 (f:79a6)
 
 ParalyzeEffect: ; 3f9b1 (f:79b1)
 	jpab ParalyzeEffect_
+
+BurnEffect:
+	jpab BurnEffect_
 
 SubstituteEffect: ; 3f9b9 (f:79b9)
 	jpab SubstituteEffect_
