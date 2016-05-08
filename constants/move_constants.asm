@@ -169,6 +169,25 @@ const_value = 1
 	const SCALD        ; a7
 	const CRUNCH       ; a8
 	const FLARE_BLITZ  ; a9
+	const FRENZY_PLANT ; aa
+	const BLAST_BURN   ; ab
+	const HYDRO_CANNON ; ac
+	const DRAGON_PULSE ; ad
+	const SMACK_DOWN   ; ae
+	const FALSE_SWIPE  ; af
+	const STEEL_WING   ; b0
+	const ENERGY_BALL  ; b1
+	const FOCUS_BLAST  ; b2
+	const SNATCH       ; b3
+	const ENDURE       ; b4
+	const SAFEGUARD    ; b5
+	const OVERHEAT     ; b6
+	const LOW_SWEEP    ; b7
+	const SILVER_WIND  ; b8
+	const EMBARGO      ; b9
+	const WILL_O_WISP  ; ba
+	const CHARGE_BEAM  ; bb
+	const DRACO_METEOR ; bc
 
 NUM_ATTACKS EQU const_value + -1
 

@@ -77,12 +77,12 @@ const_value = 0
 	const SPEED_DOWN_SIDE_EFFECT     ; $46
 	const SPECIAL_DOWN_SIDE_EFFECT   ; $47
 	const ATTACK_UP_SIDE_EFFECT      ; $48
-	const UNUSED_EFFECT_49           ; $49
-	const UNUSED_EFFECT_4A           ; $4A
-	const UNUSED_EFFECT_4B           ; $4B
+	const DEFENSE_UP_SIDE_EFFECT     ; $49
+	const SPEED_UP_SIDE_EFFECT       ; $4A
+	const SPECIAL_UP_SIDE_EFFECT     ; $4B
 	const CONFUSION_SIDE_EFFECT      ; $4C
 	const TWINEEDLE_EFFECT           ; $4D
-	const UNUSED_EFFECT_4E           ; $4E
+	const BURN_EFFECT                ; $4E
 	const SUBSTITUTE_EFFECT          ; $4F
 	const HYPER_BEAM_EFFECT          ; $50
 	const RAGE_EFFECT                ; $51
@@ -91,6 +91,7 @@ const_value = 0
 	const LEECH_SEED_EFFECT          ; $54
 	const SPLASH_EFFECT              ; $55
 	const DISABLE_EFFECT             ; $56
+	const FALSE_SWIPE_EFFECT         ; $57
 
 ; fixed damage constants
 SONICBOOM_DAMAGE   EQU 20
