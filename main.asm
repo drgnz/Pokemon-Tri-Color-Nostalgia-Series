@@ -5131,6 +5131,11 @@ INCLUDE "data/mapHeaders/billshouse.asm"
 INCLUDE "scripts/billshouse.asm"
 INCLUDE "data/mapObjects/billshouse.asm"
 BillsHouseBlocks: INCBIN "maps/billshouse.blk"
+
+INCLUDE "data/mapHeaders/celadonballetacademy.asm"
+INCLUDE "scripts/celadonballetacademy.asm"
+INCLUDE "data/mapObjects/celadonballetacademy.asm"
+CeladonBalletAcademyBlocks: INCBIN "maps/celadonballetacademy.blk"
 IF DEF(_OPTION_BEACH_HOUSE)
 INCLUDE "data/mapHeaders/beach_house.asm"
 INCLUDE "scripts/beach_house.asm"
