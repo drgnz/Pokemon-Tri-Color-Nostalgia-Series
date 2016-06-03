@@ -24,8 +24,8 @@ _CeruleanGymText_5c7be:: ; 989c1 (26:49c1)
 	done
 
 _CeruleanGymText_5c7c3:: ; 98a7b (26:4a7b)
-	text "TM11 teaches"
-	line "BUBBLEBEAM!"
+	text "TM55 teaches"
+	line "SCALD!"
 
 	para "Use it on an"
 	line "aquatic #MON!"
@@ -57,7 +57,7 @@ ENDC
 
 _ReceivedTM11Text:: ; 98b7d (26:4b7d)
 	text $52, " received"
-	line "TM11!@@"
+	line "TM55!@@"
 
 _CeruleanGymText_5c7d3:: ; 98b90 (26:4b90)
 	text "You better make"
@@ -149,4 +149,3 @@ ENDC
 	line "we're both quite"
 	cont "amazing, right?"
 	done
-
