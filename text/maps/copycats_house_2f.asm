@@ -15,6 +15,23 @@ _CopycatsHouse2FText_5ccd4:: ; a15ad (28:55ad)
 	line "favorite hobby!"
 	prompt
 
+_CopycatsHouse2FText_5ccd4:: ; a15ad (28:55ad)
+	text $52, ": Hi! You"
+	line "must like #MON."
+
+	para $52, ": No, not"
+	line "me. I asked you."
+
+	para $52, ": Pardon?"
+	line "You're weird!"
+
+	para "COPYCAT: Hmm?"
+	line "Quit mimicking?"
+
+	para "But, that's my"
+	line "favorite hobby!"
+	prompt
+
 _TM31PreReceiveText:: ; a1636 (28:5636)
 	text "Oh wow!"
 	line "A # DOLL!"
@@ -49,6 +66,21 @@ _TM31ExplanationText2:: ; a16c5 (28:56c5)
 	para $52, ": Is it"
 	line "that fun to mimic"
 	cont "my every move?"
+
+	para "COPYCAT: You bet!"
+	line "It's a scream!"
+	done
+
+_TM31ExplanationText3:: ; a16c5 (28:56c5)
+	text $52, ": Thank you"
+	line "for TM31!"
+
+	para $52, ": Pardon?"
+
+	para $52, ": Is it"
+	line "really that fun"
+	cont "to copy what I"
+	cont "say and do?"
 
 	para "COPYCAT: You bet!"
 	line "It's a scream!"
