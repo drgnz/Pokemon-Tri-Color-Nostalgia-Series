@@ -16,8 +16,16 @@ CopycatsHouse2FText1: ; 5cc82 (17:4c82)
 	jr nz, .asm_7ccf3
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	ld a, [wPlayerGender]
+	bit 2, a
+	jr nz, .girl
 	ld hl, CopycatsHouse2FText_5ccd4
 	call PrintText
+	jr .continueRoutine
+.girl
+	ld hl, CopycatsHouse2FText_5ccd4_2
+	call PrintText
+.continueRoutine
 	ld b, POKE_DOLL
 	call IsItemInBag
 	jr z, .asm_62ecd
@@ -38,7 +46,14 @@ CopycatsHouse2FText1: ; 5cc82 (17:4c82)
 	call PrintText
 	jr .asm_62ecd
 .asm_7ccf3
+	ld a, [wPlayerGender]
+	bit 2, a
+	jr nz, .girl2
 	ld hl, TM31ExplanationText2
+	call PrintText
+	jr .asm_62ecd
+.girl2
+	ld hl, TM31ExplanationText3
 	call PrintText
 .asm_62ecd
 	jp TextScriptEnd

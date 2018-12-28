@@ -92,6 +92,62 @@ _CeladonCityText9:: ; a5c63 (29:5c63)
 	line "ROCKET's way!"
 	done
 
+_CeladonCityBattleText::
+	text "You're late!"
+	line "My big sister"
+	cont "LILY is almost"
+	cont "finished with her"
+	cont "ballet lesson!"
+
+	para "There's barely"
+	line "enough time for"
+	cont "us to have a"
+	cont "rematch!"
+
+	para "And I promise you"
+	line "this time you'll"
+	cont "be in for a real"
+	cont "shock!"
+	done
+
+_CeladonCityEndBattleText::
+	text "You're even"
+	line "better than I'd"
+	cont "anticipated!"
+	prompt
+
+_IronTailMoveTutorPreText::
+	text "By the way,"
+	line "I'd like to teach"
+	cont "one of your"
+	cont "#MON this"
+	cont "cool move!"
+	prompt
+
+_MistyLeavesCeladonText::
+	text "Ah, perfect timing!"
+	line "LILY's ballet"
+	cont "lesson is over"
+	cont "for this week!"
+
+	para "It's been fun, but"
+	line "I've got to get"
+	cont "back to CERULEAN"
+	cont "CITY; I've got a"
+	cont "#MON GYM to"
+	cont "run, after all!"
+
+	para "Later!"
+	done
+
+_IronTailMoveTutorFails::
+	text "Hurry up!"
+	line "I've got a"
+	cont "#MON GYM to"
+	cont "run; I don't have"
+	cont "all day!"
+	done
+
 _CeladonCityText10:: ; a5c82 (29:5c82)
 	text "TRAINER TIPS"
 
@@ -165,4 +221,3 @@ ELSE
 	cont "for grown-ups!"
 ENDC
 	done
-
